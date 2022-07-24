@@ -1,0 +1,6 @@
+name: "Banana Action Set"
+description: "run banana action set"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"

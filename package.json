@@ -1,0 +1,25 @@
+{
+  "name": "schedule_jobs",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "git@github.com:k1ngbanana/schedule_jobs.git",
+  "author": "zhaoruling <k1ng_banana@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node dist/index.js",
+    "test": "yarn build && yarn start",
+    "build": "esbuild --bundle src/index.ts --platform=node --outfile=dist/index.js",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.49",
+    "husky": "^8.0.1",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^6.4.4",
+    "await-to-js": "^3.0.0",
+    "axios": "^0.27.2",
+    "nodemailer": "^6.7.7"
+  }
+}

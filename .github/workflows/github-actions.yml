@@ -1,0 +1,25 @@
+name: Banana Action Set
+on:
+  #  push:
+  workflow_dispatch:
+  schedule:
+    # 定时任务 每天 8:00 自动签到，按照计划任务队列，可能延迟 0 + 8 = 北京时间 8
+#        - cron: "00 0 * * *"
+    - cron: "52/5 * * * *"
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out and run repository code
+        uses: k1ngbanana/schedule_jobs@main
+        env:
+          XINDONGLI_URL: ${{secrets.XINDONGLI_URL}}
+          XINDONGLI_USERNAME: ${{secrets.XINDONGLI_USERNAME}}
+          XINDONGLI_PASSWORD: ${{secrets.XINDONGLI_PASSWORD}}
+          MAIL_SENDER: ${{secrets.MAIL_SENDER}}
+          SMTP_PASSWORD: ${{secrets.SMTP_PASSWORD}}
+          MAIL_HOST_SENDER: ${{secrets.MAIL_HOST_SENDER}}
+          MAIL_PORT_SENDER: ${{secrets.MAIL_PORT_SENDER}}
+          MAIL_RECIPIENT: ${{secrets.MAIL_RECIPIENT}}
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🍏 This job's status is ${{ job.status }}."
